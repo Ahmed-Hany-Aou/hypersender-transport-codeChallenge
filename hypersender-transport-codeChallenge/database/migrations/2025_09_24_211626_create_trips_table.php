@@ -16,6 +16,18 @@ return new class extends Migration
         $table->string('name'); // Example column
         $table->string('status')->default('pending'); // ✅ Ensure this column exists
         $table->timestamps();
+
+        $table->foreignId('company_id')->constrained()->cascadeOnDelete();
+        $table->foreignId('driver_id')->constrained()->cascadeOnDelete();
+        $table->foreignId('vehicle_id')->constrained()->cascadeOnDelete();
+        $table->dateTime('start_time');
+        $table->dateTime('end_time');
+        $table->string('origin');
+        $table->string('destination');
+
+
+        
+        
         });
     }
 

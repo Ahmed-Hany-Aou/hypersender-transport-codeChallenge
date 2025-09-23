@@ -28,7 +28,22 @@ protected static ?string $navigationIcon = 'heroicon-o-truck';
     {
         return $form
             ->schema([
-                //
+                Forms\Components\Select::make('company_id')
+                    ->label('Company')
+                    ->relationship('company', 'name')
+                    ->required()
+                    ->searchable(),
+
+                    Forms\Components\TextInput::make('model')->required()->maxLength(255),
+                Forms\Components\TextInput::make('plate_number')->unique()->required()->maxLength(100),
+                Forms\Components\Select::make('status')
+                    ->options([
+                        'active' => 'Active',
+                        'maintenance' => 'Maintenance',
+                        'retired' => 'Retired',
+                    ])
+                    ->default('active')
+                    ->required(),
             ]);
     }
 
@@ -36,7 +51,11 @@ protected static ?string $navigationIcon = 'heroicon-o-truck';
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('company.name')->label('Company')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('model')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('plate_number')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('status')->badge(),
+                Tables\Columns\TextColumn::make('created_at')->dateTime(),
             ])
             ->filters([
                 //

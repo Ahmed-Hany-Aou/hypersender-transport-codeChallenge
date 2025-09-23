@@ -27,7 +27,20 @@ protected static ?int $navigationSort = 6;
     {
         return $form
             ->schema([
-                //
+                 Forms\Components\TextInput::make('code')
+                    ->required()
+                    ->unique()
+                    ->maxLength(20),
+                Forms\Components\TextInput::make('discount')
+                    ->required()
+                    ->numeric()
+                    ->minValue(0)
+                    ->maxValue(100),
+                Forms\Components\DatePicker::make('valid_from')->required(),
+                Forms\Components\DatePicker::make('valid_until')->required(),
+                Forms\Components\Toggle::make('active')
+                    ->default(true)
+                    ->label('Active'),
             ]);
     }
 
@@ -35,7 +48,12 @@ protected static ?int $navigationSort = 6;
     {
         return $table
             ->columns([
-                //
+               Tables\Columns\TextColumn::make('code')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('discount'),
+                Tables\Columns\TextColumn::make('valid_from')->date(),
+                Tables\Columns\TextColumn::make('valid_until')->date(),
+                Tables\Columns\IconColumn::make('active')->boolean(),
+                Tables\Columns\TextColumn::make('created_at')->dateTime(),
             ])
             ->filters([
                 //
