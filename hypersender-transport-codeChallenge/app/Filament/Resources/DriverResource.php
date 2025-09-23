@@ -28,7 +28,22 @@ protected static ?int $navigationSort = 3;
     {
         return $form
             ->schema([
-                //
+            Forms\Components\Select::make('company_id')
+                ->label('Company')
+                ->relationship('company', 'name')
+                ->required()
+                ->searchable(),
+
+            Forms\Components\TextInput::make('name')
+                ->required()
+                ->maxLength(255),
+            Forms\Components\TextInput::make('license_number')
+                ->required()
+                ->maxLength(50)
+                ->unique(), // Ensure no duplicate licenses
+            Forms\Components\TextInput::make('phone')
+                ->maxLength(30)
+                ->tel(),
             ]);
     }
 
@@ -36,7 +51,11 @@ protected static ?int $navigationSort = 3;
     {
         return $table
             ->columns([
-                //
+            Tables\Columns\TextColumn::make('company.name')->label('Company')->sortable()->searchable(),
+            Tables\Columns\TextColumn::make('name')->searchable(),
+            Tables\Columns\TextColumn::make('license_number')->searchable(),
+            Tables\Columns\TextColumn::make('phone'),
+            Tables\Columns\TextColumn::make('created_at')->dateTime(),
             ])
             ->filters([
                 //

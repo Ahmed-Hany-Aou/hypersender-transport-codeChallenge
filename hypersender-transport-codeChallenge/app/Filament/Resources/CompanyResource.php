@@ -28,7 +28,9 @@ protected static ?string $navigationIcon = 'heroicon-o-building-office-2';
     {
         return $form
             ->schema([
-                //
+            Forms\Components\TextInput::make('name')->required()->maxLength(255),
+            Forms\Components\TextInput::make('address')->maxLength(255),
+            Forms\Components\TextInput::make('contact_info')->maxLength(255),
             ]);
     }
 
@@ -36,7 +38,10 @@ protected static ?string $navigationIcon = 'heroicon-o-building-office-2';
     {
         return $table
             ->columns([
-                //
+            Tables\Columns\TextColumn::make('name')->searchable(),
+            Tables\Columns\TextColumn::make('address'),
+            Tables\Columns\TextColumn::make('contact_info'),
+            Tables\Columns\TextColumn::make('created_at')->dateTime(),
             ])
             ->filters([
                 //
