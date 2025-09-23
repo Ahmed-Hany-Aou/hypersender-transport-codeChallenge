@@ -36,13 +36,15 @@ class AdminPanelProvider extends PanelProvider
             ->viteTheme('resources/css/filament/admin/theme.css')
                 ->renderHook(
                 'panels::head.end',
-                fn () => view('filament.custom-styles')
-
-                
+                fn () => view('filament.custom-styles') 
             )
             ->renderHook(
     'panels::topbar.end', // or 'panels::body.start' for more generic placement
     fn () => view('filament.custom-navbar')
+)
+
+    ->renderHook(
+        'panels::body.start', fn () => view('filament.custom-sidebar-toggle')
 )
 
         

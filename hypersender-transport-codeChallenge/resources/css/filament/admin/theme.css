@@ -34,9 +34,10 @@
 }
 
 /* Navigation brand/logo area */
-.fi-sidebar-nav .fi-logo {
+.fi-logo {
     padding: 1.5rem 1rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-left: 1rem;
 }
 
 /* Sidebar background */
@@ -51,6 +52,7 @@
     border-radius: 0.75rem;
     margin: 0.25rem 0.5rem;
     transition: all 0.2s ease;
+       
 }
 
 .fi-sidebar-nav-item > .fi-sidebar-nav-item-button:hover {
@@ -72,6 +74,11 @@
     border-radius: 9999px;
     padding: 0.25rem 0.75rem;
 }
+
+
+
+
+
 
 /* =================================================================
    DASHBOARD & STATS CARDS
@@ -412,4 +419,22 @@
     border-radius: 9999px;
     font-size: 0.875rem;
     font-weight: 500;
+}
+
+/* Make the active sidebar nav item (Dashboard) red */
+.fi-sidebar-nav-item-active > .fi-sidebar-nav-item-button {
+    color: #ef4444 !important;                /* text red-500 */
+    background-color: rgba(239, 68, 68, 0.10) !important; /* light red bg */
+}
+.fi-sidebar-nav-item-active .fi-sidebar-nav-item-icon {
+    color: #ef4444 !important;                /* icon red-500 */
+}
+
+
+.fi-sidebar.collapsed {
+    width: 3.5rem !important;     /* Tailwind w-14 */
+    min-width: 3.5rem !important;
+    overflow-x: hidden !important;
+    transition: width 0.3s;
+
 }
