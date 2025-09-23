@@ -17,7 +17,12 @@ class DriverResource extends Resource
 {
     protected static ?string $model = Driver::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+  //  protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+protected static ?string $navigationIcon = 'heroicon-o-user-group';
+protected static ?string $navigationLabel = 'Drivers';
+protected static ?int $navigationSort = 3;
+// Change icon/label/sort for each one
+
 
     public static function form(Form $form): Form
     {
