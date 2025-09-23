@@ -1,0 +1,415 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* =================================================================
+   THEME 1: MODERN PROFESSIONAL
+   ================================================================= */
+
+/* Custom CSS Variables */
+:root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --dark-gradient: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    --glass-bg: rgba(255, 255, 255, 0.95);
+    --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+/* =================================================================
+   NAVIGATION & TOPBAR CUSTOMIZATIONS
+   ================================================================= */
+
+/* Modern gradient topbar */
+.fi-topbar {
+    background: var(--primary-gradient) !important;
+    border-bottom: none !important;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3) !important;
+    backdrop-filter: blur(10px);
+}
+
+/* Topbar text color */
+.fi-topbar .fi-topbar-item,
+.fi-topbar .fi-topbar-item a {
+    color: white !important;
+}
+
+/* Navigation brand/logo area */
+.fi-sidebar-nav .fi-logo {
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Sidebar background */
+.fi-sidebar {
+    background: linear-gradient(180deg, #1e40af 0%, #1e3a8a 100%) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Sidebar navigation items */
+.fi-sidebar-nav-item > .fi-sidebar-nav-item-button {
+    color: rgba(255, 255, 255, 0.8) !important;
+    border-radius: 0.75rem;
+    margin: 0.25rem 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.fi-sidebar-nav-item > .fi-sidebar-nav-item-button:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+}
+
+/* Active sidebar item */
+.fi-sidebar-nav-item-active > .fi-sidebar-nav-item-button {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    color: white !important;
+}
+
+/* Navigation badges */
+.fi-badge {
+    background-color: rgba(34, 197, 94, 0.9) !important;
+    color: white !important;
+    font-weight: 600;
+    border-radius: 9999px;
+    padding: 0.25rem 0.75rem;
+}
+
+/* =================================================================
+   DASHBOARD & STATS CARDS
+   ================================================================= */
+
+/* Modern stats cards with glass effect */
+.fi-stats-card {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 1rem !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fi-stats-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Stats card content */
+.fi-stats-card .fi-stats-card-value {
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    color: #111827 !important;
+    line-height: 1.2;
+}
+
+.fi-stats-card .fi-stats-card-description {
+    color: #6b7280 !important;
+    font-weight: 500 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.875rem;
+}
+
+/* Stats card icons */
+.fi-stats-card .fi-stats-card-icon {
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+/* Color variations for different card types */
+.fi-stats-card[data-stat="active-trips"] .fi-stats-card-icon {
+    background-color: #dcfce7 !important;
+    color: #16a34a !important;
+}
+
+.fi-stats-card[data-stat="available-drivers"] .fi-stats-card-icon {
+    background-color: #dbeafe !important;
+    color: #2563eb !important;
+}
+
+.fi-stats-card[data-stat="fleet-vehicles"] .fi-stats-card-icon {
+    background-color: #f3e8ff !important;
+    color: #9333ea !important;
+}
+
+/* =================================================================
+   FORMS & MODALS CUSTOMIZATION
+   ================================================================= */
+
+/* Form section headers */
+.fi-section-header-heading {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: #111827 !important;
+    margin-bottom: 0.5rem;
+}
+
+.fi-section-header-description {
+    color: #6b7280 !important;
+    font-size: 0.95rem;
+}
+
+/* Form cards */
+.fi-section {
+    background: white !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 1rem !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    margin-bottom: 1.5rem;
+}
+
+/* Input fields */
+.fi-input,
+.fi-select-input {
+    border-radius: 0.75rem !important;
+    border: 1.5px solid #d1d5db !important;
+    transition: all 0.2s ease;
+    padding: 0.75rem 1rem !important;
+}
+
+.fi-input:focus,
+.fi-select-input:focus {
+    border-color: #667eea !important;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+}
+
+/* Buttons */
+.fi-btn-primary {
+    background: var(--primary-gradient) !important;
+    border: none !important;
+    border-radius: 0.75rem !important;
+    font-weight: 600 !important;
+    padding: 0.75rem 1.5rem !important;
+    transition: all 0.2s ease;
+}
+
+.fi-btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3) !important;
+}
+
+/* =================================================================
+   TABLES CUSTOMIZATION
+   ================================================================= */
+
+/* Table styling */
+.fi-table {
+    border-radius: 1rem !important;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.fi-table-header-cell {
+    background-color: #f9fafb !important;
+    color: #374151 !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.75rem;
+    padding: 1rem !important;
+}
+
+.fi-table-row:hover {
+    background-color: #f8fafc !important;
+}
+
+.fi-table-cell {
+    padding: 1rem !important;
+    border-bottom: 1px solid #f3f4f6 !important;
+}
+
+/* =================================================================
+   DARK THEME VARIATIONS
+   ================================================================= */
+
+/* Dark theme overrides */
+[data-theme="dark"] .fi-topbar {
+    background: var(--dark-gradient) !important;
+}
+
+[data-theme="dark"] .fi-stats-card {
+    background: #1f2937 !important;
+    border: 1px solid #374151 !important;
+}
+
+[data-theme="dark"] .fi-stats-card .fi-stats-card-value {
+    color: white !important;
+}
+
+[data-theme="dark"] .fi-stats-card .fi-stats-card-description {
+    color: #9ca3af !important;
+}
+
+[data-theme="dark"] .fi-section {
+    background: #1f2937 !important;
+    border: 1px solid #374151 !important;
+}
+
+[data-theme="dark"] .fi-input,
+[data-theme="dark"] .fi-select-input {
+    background-color: #374151 !important;
+    border-color: #4b5563 !important;
+    color: white !important;
+}
+
+/* =================================================================
+   CUSTOM COMPONENTS
+   ================================================================= */
+
+/* Activity indicators in navigation */
+.activity-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.activity-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+}
+
+.activity-dot.active {
+    background-color: #10b981;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+}
+
+.activity-dot.available {
+    background-color: #3b82f6;
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+}
+
+.activity-dot.ready {
+    background-color: #f59e0b;
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.5);
+}
+
+/* Custom page headers */
+.custom-page-header {
+    background: var(--primary-gradient);
+    color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
+.custom-page-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.custom-page-header p {
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+/* =================================================================
+   ANIMATIONS & TRANSITIONS
+   ================================================================= */
+
+/* Smooth transitions for interactive elements */
+.fi-stats-card,
+.fi-btn,
+.fi-input,
+.fi-select-input,
+.fi-sidebar-nav-item-button {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Loading states */
+.fi-loading {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* =================================================================
+   RESPONSIVE DESIGN
+   ================================================================= */
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .fi-stats-card .fi-stats-card-value {
+        font-size: 2rem !important;
+    }
+    
+    .activity-indicator {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.8rem;
+    }
+    
+    .custom-page-header {
+        padding: 1.5rem;
+    }
+    
+    .custom-page-header h1 {
+        font-size: 1.75rem;
+    }
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+    .fi-sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .fi-sidebar.open {
+        transform: translateX(0);
+    }
+}
+
+/* =================================================================
+   UTILITIES
+   ================================================================= */
+
+/* Custom utility classes */
+.glass-effect {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid var(--glass-border) !important;
+}
+
+.gradient-text {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.status-badge-active {
+    background-color: #10b981;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.status-badge-available {
+    background-color: #3b82f6;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.status-badge-maintenance {
+    background-color: #f59e0b;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
