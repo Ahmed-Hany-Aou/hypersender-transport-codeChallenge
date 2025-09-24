@@ -3,6 +3,8 @@
 namespace App\Providers;
 use App\Models\Promo; 
 use App\Observers\PromoObserver;
+use App\Models\Trip; 
+use App\Observers\TripObserver;  
 
 use Illuminate\Support\ServiceProvider;
 
@@ -22,5 +24,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Promo::observe(PromoObserver::class);
+        Trip::observe(TripObserver::class);
     }
 }

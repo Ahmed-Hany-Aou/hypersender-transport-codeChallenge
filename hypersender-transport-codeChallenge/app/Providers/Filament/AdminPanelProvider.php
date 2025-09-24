@@ -17,6 +17,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use App\Filament\Widgets\DashboardStats;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -25,7 +26,7 @@ class AdminPanelProvider extends PanelProvider
         return $panel
             ->id('admin')
             ->widgets([Widgets\AccountWidget::class, \App\Filament\Widgets\UserProfileWidget::class,
-            \App\Filament\Widgets\DemoStatsWidget::class,])
+            \App\Filament\Widgets\DashboardStats::class,])
             ->default()
             ->path('admin')
             ->login()
@@ -69,6 +70,8 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ]);
+
+            
           
     }
 }
