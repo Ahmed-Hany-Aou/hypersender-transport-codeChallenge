@@ -35,7 +35,7 @@ protected static ?string $navigationIcon = 'heroicon-o-truck';
                     ->searchable(),
 
                     Forms\Components\TextInput::make('model')->required()->maxLength(255),
-                Forms\Components\TextInput::make('plate_number')->unique()->required()->maxLength(100),
+                Forms\Components\TextInput::make('plate_number')->unique(ignoreRecord: true)->required()->maxLength(100),
                 Forms\Components\Select::make('status')
                     ->options([
                         'active' => 'Active',

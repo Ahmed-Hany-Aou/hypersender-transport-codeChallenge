@@ -40,7 +40,7 @@ protected static ?int $navigationSort = 3;
             Forms\Components\TextInput::make('license_number')
                 ->required()
                 ->maxLength(50)
-                ->unique(), // Ensure no duplicate licenses
+                ->unique(ignoreRecord: true), // Ensure no duplicate licenses
             Forms\Components\TextInput::make('phone')
                 ->maxLength(30)
                 ->tel(),
