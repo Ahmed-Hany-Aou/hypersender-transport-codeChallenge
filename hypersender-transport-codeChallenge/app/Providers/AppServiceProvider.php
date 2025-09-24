@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Providers;
+use App\Models\Promo; 
+use App\Observers\PromoObserver;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -19,6 +21,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Promo::observe(PromoObserver::class);
     }
 }

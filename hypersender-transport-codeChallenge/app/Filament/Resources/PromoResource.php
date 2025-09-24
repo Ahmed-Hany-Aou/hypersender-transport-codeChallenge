@@ -29,15 +29,15 @@ protected static ?int $navigationSort = 6;
             ->schema([
                  Forms\Components\TextInput::make('code')
                     ->required()
-                    ->unique()
+                    ->unique(ignoreRecord: true)
                     ->maxLength(20),
                 Forms\Components\TextInput::make('discount')
                     ->required()
                     ->numeric()
                     ->minValue(0)
                     ->maxValue(100),
-                Forms\Components\DatePicker::make('valid_from')->required(),
-                Forms\Components\DatePicker::make('valid_until')->required(),
+                Forms\Components\DatePicker::make('valid_from') ->required() ->live(),
+                Forms\Components\DatePicker::make('valid_until')->required() ->after('valid_from'),
                 Forms\Components\Toggle::make('active')
                     ->default(true)
                     ->label('Active'),

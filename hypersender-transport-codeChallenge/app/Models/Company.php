@@ -19,6 +19,7 @@ class Company extends Model
         'name',
         'address',
         'contact_info',
+        'company_id',
     ];
 
     /**

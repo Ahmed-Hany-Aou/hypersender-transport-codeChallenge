@@ -1,19 +1,32 @@
 <?php
 
 namespace App\Models;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Relations\BelongsTo; // Important: Add this use statement
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Trip extends Model
 {
     use HasFactory;
-    public function scopeActive(Builder $query): Builder
-    {
-        return $query->where('status', 'active');
-    }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'company_id',
+        'driver_id',
+        'vehicle_id',
+        'promo_id',
+        'origin',
+        'destination',
+        'start_time',
+        'end_time',
+        'status',
+    ];
 
     /**
      * Get the driver for the trip.
@@ -32,7 +45,7 @@ class Trip extends Model
     }
 
     /**
-     * Get the company for the trip. (This was the missing one)
+     * Get the company for the trip.
      */
     public function company(): BelongsTo
     {

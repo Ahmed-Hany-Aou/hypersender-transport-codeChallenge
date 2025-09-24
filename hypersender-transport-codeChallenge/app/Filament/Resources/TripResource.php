@@ -21,8 +21,17 @@ protected static ?string $navigationIcon = 'heroicon-o-map';
 
     public static function form(Form $form): Form
     {
+
+        
+
+
         return $form
              ->schema([
+
+                Forms\Components\TextInput::make('name')
+                ->required()
+                ->maxLength(255),
+
             Forms\Components\Select::make('company_id')
                 ->label('Company')
                 ->relationship('company', 'name')
@@ -48,8 +57,8 @@ protected static ?string $navigationIcon = 'heroicon-o-map';
                 ->required()
                 ->maxLength(255),
 
-            Forms\Components\DateTimePicker::make('start_time')->required(),
-            Forms\Components\DateTimePicker::make('end_time')->required(),
+            Forms\Components\DateTimePicker::make('start_time')->required()->rules(['after_or_equal:today']),
+            Forms\Components\DateTimePicker::make('end_time')->required()->rules(['after:start_time']),
             ]);
     }
 
