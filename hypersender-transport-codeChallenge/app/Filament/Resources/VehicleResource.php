@@ -13,6 +13,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
+
 class VehicleResource extends Resource
 {
     protected static ?string $model = Vehicle::class;
@@ -76,6 +77,14 @@ protected static ?string $navigationIcon = 'heroicon-o-truck';
             //
         ];
     }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->with(['company']);
+    }
+
+
+
 
     public static function getPages(): array
     {
